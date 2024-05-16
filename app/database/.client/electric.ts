@@ -21,11 +21,8 @@ const token = insecureAuthToken({ sub: "dummy" });
 
 await electric.connect(token);
 
-const driver2 = new PGlite("idb://electric.db", {
-  relaxedDurability: true,
-});
-
-const db = drizzle(driver2, {
+// Just for testing, can cause troubles to share the same driver. It must be only owned by Electric
+const db = drizzle(driver, {
   schema: drizzleSchema,
   logger: true,
 });
