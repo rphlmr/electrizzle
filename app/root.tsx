@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useRouteLoaderData,
 } from "@remix-run/react";
 import { getBrowserEnv } from "~/utils/env";
 
@@ -14,6 +15,8 @@ export function loader() {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { env } = useRouteLoaderData<typeof loader>("root") || {};
+
   return (
     <html lang="en">
       <head>
@@ -25,6 +28,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.env = ${JSON.stringify(env)}`,
+          }}
+        />
         <Scripts />
       </body>
     </html>

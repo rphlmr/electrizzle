@@ -6,6 +6,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 installGlobals();
 
 export default defineConfig({
+  optimizeDeps: {
+    exclude: ["@electric-sql/pglite", "drizzle-orm/pglite"],
+  },
   plugins: [
     remix({
       future: {

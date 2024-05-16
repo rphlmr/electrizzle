@@ -5,6 +5,7 @@ export const isBrowser = typeof document !== "undefined";
 export const EnvSchema = z.object({
   DATABASE_URL: z.string().min(1),
   ELECTRIC_PROXY: z.string().min(1),
+  ELECTRIC_URL: z.string().min(1),
   SUPABASE_URL: z.string().min(1).url(),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1),
   SUPABASE_ANON_KEY: z.string().min(1),
@@ -13,7 +14,7 @@ export const EnvSchema = z.object({
 
 type Env = z.infer<typeof EnvSchema>;
 
-const PublicEnvSchema = EnvSchema.pick({});
+const PublicEnvSchema = EnvSchema.pick({ ELECTRIC_URL: true });
 
 type PublicEnv = z.infer<typeof PublicEnvSchema>;
 
@@ -34,7 +35,9 @@ export function initEnv() {
  * @returns public envs
  */
 export function getBrowserEnv() {
-  return {} satisfies PublicEnv;
+  return {
+    ELECTRIC_URL: env.ELECTRIC_URL,
+  } satisfies PublicEnv;
 }
 
 declare global {

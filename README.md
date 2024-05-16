@@ -1,36 +1,9 @@
-# Welcome to Remix + Vite!
+# R&D
 
-📖 See the [Remix docs](https://remix.run/docs) and the [Remix Vite docs](https://remix.run/docs/en/main/guides/vite) for details on supported features.
-
-## Development
-
-Run the Vite dev server:
-
-```shellscript
-npm run dev
-```
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying Node applications, the built-in Remix app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-- `build/server`
-- `build/client`
+## Setup
+- Install Supabase CLI https://supabase.com/docs/guides/cli/getting-started
+- Copy `.env.example` to `.env` (values should be ok)
+- Run `supabase init` to create the required local host config
+- Run `supabase start && npx electric-sql start` to start. Wait for it to be ready.
+- Run `npm run db:server:migration:deploy:proxy` to deploy the migrations
+- Run `npm run dev` to start the dev server

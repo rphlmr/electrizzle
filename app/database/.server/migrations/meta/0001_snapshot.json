@@ -1,6 +1,6 @@
 {
-  "id": "aec4d803-a20b-43de-875d-c161f48b5440",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "5b7516be-36f1-46a0-a51b-d9f4c88ed5e3",
+  "prevId": "aec4d803-a20b-43de-875d-c161f48b5440",
   "version": "6",
   "dialect": "postgresql",
   "tables": {
@@ -60,16 +60,16 @@
         "user_id_users_id_fk": {
           "name": "user_id_users_id_fk",
           "tableFrom": "user",
-          "tableTo": "users",
-          "schemaTo": "auth",
           "columnsFrom": [
             "id"
           ],
+          "tableTo": "users",
+          "schemaTo": "auth",
           "columnsTo": [
             "id"
           ],
-          "onDelete": "cascade",
-          "onUpdate": "no action"
+          "onUpdate": "no action",
+          "onDelete": "cascade"
         }
       },
       "compositePrimaryKeys": {},

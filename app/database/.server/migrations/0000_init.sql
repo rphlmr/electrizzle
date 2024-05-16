@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS "post" (
 	"id" text PRIMARY KEY NOT NULL,
+	"title" text NOT NULL,
 	"creator_id" uuid
 );
 --> statement-breakpoint
