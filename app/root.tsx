@@ -5,6 +5,13 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import { getBrowserEnv } from "~/utils/env";
+
+export function loader() {
+  return {
+    env: getBrowserEnv(),
+  };
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
